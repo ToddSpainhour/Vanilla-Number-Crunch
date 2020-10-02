@@ -1,41 +1,49 @@
 
-let userEntry = [];
+let currentNumberEntry = [];
 
 
-
-
-
-
-const clickedButtonEvent = (e) => {
-  e.preventDefault();
+const numberButtonEvent = (e) => 
+{
   if (e.target.value  >= 0 && e.target.value <= 9) 
   {
-      userEntry.push(e.target.value)
-      document.getElementById('displayEntries').innerHTML = userEntry.join('');
-      console.log(`userEntry array is: ${userEntry}`)
+    currentNumberEntry.push(e.target.value);
+    document.getElementById('displayEntries').innerHTML = currentNumberEntry.join('');
   } 
-  else if (e.target.value = "backspace")
-  {
-      console.log("inside your else if backspace btn clicked")
-  }
 };
 
 
 const backspaceButtonEvent = (e) => 
 {
-  console.log("You clikde the backspace btn");
-  userEntry.splice(userEntry.length -1);
-  document.getElementById('displayEntries').innerHTML = userEntry.join('');
-  console.log(`userEntry array is: ${userEntry}`)
+  currentNumberEntry.splice(currentNumberEntry.length -1);
+  document.getElementById('displayEntries').innerHTML = currentNumberEntry.join('');
 }
 
 
-
-let numberButton = document.getElementsByClassName("number-button");
-let backspaceButton = document.getElementById("backspaceButton");
-backspaceButton.addEventListener("click", backspaceButtonEvent)
-
-for (let i = 0; i < numberButton.length; i++)
+const clearAllButtonEvent = (e) =>
 {
-  numberButton[i].addEventListener("click", clickedButtonEvent)
+  currentNumberEntry = [];
+  document.getElementById('displayEntries').innerHTML = currentNumberEntry;
 }
+
+
+const addClickEvents = () =>
+{
+  backspaceButton.addEventListener("click", backspaceButtonEvent);
+  clearAllButton.addEventListener("click", clearAllButtonEvent);
+
+  let numberButton = document.getElementsByClassName("number-button");
+  
+  for (let i = 0; i < numberButton.length; i++)
+  {
+    numberButton[i].addEventListener("click", numberButtonEvent)
+  }
+}
+
+
+const init = () =>
+{
+  addClickEvents();
+}
+
+
+init();
