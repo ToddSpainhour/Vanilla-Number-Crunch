@@ -33,23 +33,32 @@ const operatorButtonEvent = (e) =>
     case '.':
       console.log("You picked a decimal point"); // this might need to go somewhere else...
       break;
+      
     case '+':
       pushCurrentEntryToMemory();
-      
+      if (answer !== '')
+      {
+        memory = answer;
+      } 
       break;
-      case '-':
-        console.log("You picked subtraction");
-        break;
-      case 'x':
-        console.log("You picked multiplication");
-        break;
-      case '/':
-        console.log("You picked division");
-        break;
-      case '=':
-        answer = parseInt(memory) + parseInt(currentEntry);
-        document.getElementById('displayEntries').innerHTML = answer;
+
+    case '-':
+      console.log("You picked subtraction");
       break;
+    case 'x':
+      console.log("You picked multiplication");
+      break;
+
+    case '/':
+      console.log("You picked division");
+      break;
+
+    case '=':
+      answer = parseInt(memory) + parseInt(currentEntry);
+      document.getElementById('displayEntries').innerHTML = answer;
+      memory = answer;
+      console.log(`memory should be answer to question: ${memory}`)
+    break;
   }
 
 }
