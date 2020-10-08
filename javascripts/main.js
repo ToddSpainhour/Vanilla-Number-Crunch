@@ -1,5 +1,6 @@
 
 let currentNumberEntry = [];
+let previousNumberEntery = [];
 
 
 const numberButtonEvent = (e) => 
@@ -10,6 +11,21 @@ const numberButtonEvent = (e) =>
     document.getElementById('displayEntries').innerHTML = currentNumberEntry.join('');
   } 
 };
+
+const operatorButtonEvent = (e) =>
+{
+  console.log("You're inside the operatorButtonEvent function");
+  // if (e.target.getElementsByClassName === 'operator-button')
+  // {
+  //   console.log("You're inside the operatorButtonEvent function")
+  // }
+}
+
+// switch(x) 
+// {
+//   case 'additionButton':
+//     console.log("You picked addition");
+// }
 
 
 const backspaceButtonEvent = (e) => 
@@ -36,6 +52,13 @@ const addClickEvents = () =>
   for (let i = 0; i < numberButton.length; i++)
   {
     numberButton[i].addEventListener("click", numberButtonEvent)
+  }
+
+  let operatorButton = document.getElementsByClassName("operator-button");
+
+  for (let i = 0; i < operatorButton.length; i++)
+  {
+    operatorButton[i].addEventListener("click", operatorButtonEvent)
   }
 }
 
