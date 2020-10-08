@@ -35,7 +35,20 @@ const operatorButtonEvent = (e) =>
       break;
     case '+':
       pushCurrentEntryToMemory();
-      
+      if (answer === '')
+      {
+        console.log("inside the + operator if block. This means answer is empty.");
+      } else
+      {
+        memory = answer;
+        //console.log("inside the + operator else block");
+        console.log(`else block: memory is ${memory}`); // this needs to be updated to the answer
+        console.log(`else block: currentEntry is ${currentEntry}`);
+        console.log(`else block: answer is ${answer}`);
+        //console.log(` inside the + operator else block answer + memory parseInt is: ${parseInt(answer) + parseInt(memory)}`);
+      }
+      console.log(`memory inside addition operator: ${memory}`)
+
       break;
       case '-':
         console.log("You picked subtraction");
@@ -49,6 +62,8 @@ const operatorButtonEvent = (e) =>
       case '=':
         answer = parseInt(memory) + parseInt(currentEntry);
         document.getElementById('displayEntries').innerHTML = answer;
+        memory = answer;
+        console.log(`memory should be answer to question: ${memory}`)
       break;
   }
 
