@@ -1,8 +1,36 @@
 
-let memory = '';
 let currentEntry = '';
-let answer = '';
 let pickedOperator = '';
+let memory = '';
+let answer = '';
+
+
+
+
+
+const pushCurrentEntryToMemory = () =>
+{
+  memory = currentEntry;
+  currentEntry = ''
+};
+
+
+
+const pushAnswerToMemory = () =>
+{
+  if (answer !== '') 
+  {
+    memory = answer;
+  };
+};
+
+
+
+const pushValuesToMemory = () =>
+{
+  pushCurrentEntryToMemory();
+  pushAnswerToMemory();
+};
 
 
 
@@ -12,24 +40,9 @@ const numberButtonEvent = (e) =>
   {
     currentEntry += e.target.value
     document.getElementById('displayEntries').innerHTML = currentEntry;
-  } 
+  }; 
 };
 
-
-
-const pushCurrentEntryToMemory = () =>
-{
-  memory = currentEntry;
-  currentEntry = ''
-}
-
-const pushAnswerToMemory = () =>
-{
-  if (answer !== '') 
-  {
-    memory = answer;
-  };
-}
 
 
 const operatorButtonEvent = (e) =>
@@ -39,56 +52,37 @@ const operatorButtonEvent = (e) =>
   switch(pickedOperator) 
   {
     case '.':
-      console.log("You picked a decimal point"); // this might need to go somewhere else...
+      console.log("You picked a decimal point");
       break;
       
     case '+':
-      pushCurrentEntryToMemory();
-      pushAnswerToMemory();
-      // if (answer !== '')
-      // {
-      //   memory = answer;
-      // }; 
+      pushValuesToMemory();
       break;
 
     case '-':
-      pushCurrentEntryToMemory();
-      pushAnswerToMemory();
-      // if (answer !== '')
-      // {
-      //   memory = answer;
-      // }; 
+      pushValuesToMemory();
       break;
 
     case 'x':
-      pushCurrentEntryToMemory();
-      pushAnswerToMemory();
-      // if (answer !== '')
-      // {
-      //   memory = answer;
-      // };
+      pushValuesToMemory();
       break;
 
     case '/':
-      pushCurrentEntryToMemory();
-      pushAnswerToMemory();
-
-      // if (answer !== '')
-      // {
-      //   memory = answer;
-      // };
+      pushValuesToMemory();
       break;
-  }
+  };
+};
 
-}
+
 
 const equalsButtonEvent = (e) =>
 {
   switch(pickedOperator) 
   {
     case '.':
-      console.log("You picked a decimal point"); // this might need to go somewhere else...
+      console.log("You picked a decimal point");
       break;
+
       case '+':
         answer = parseInt(memory) + parseInt(currentEntry);
         document.getElementById('displayEntries').innerHTML = answer;
@@ -113,7 +107,7 @@ const equalsButtonEvent = (e) =>
         memory = answer;
       break;
   };
-}
+};
 
 
 
@@ -121,7 +115,7 @@ const backspaceButtonEvent = (e) =>
 {
   memory.splice(memory.length -1);
   document.getElementById('displayEntries').innerHTML = memory.join('');
-}
+};
 
 
 
@@ -129,7 +123,7 @@ const clearAllButtonEvent = (e) =>
 {
   memory = [];
   document.getElementById('displayEntries').innerHTML = memory;
-}
+};
 
 
 
@@ -152,14 +146,14 @@ const addClickEvents = () =>
     {
       operatorButton[i].addEventListener("click", operatorButtonEvent)
     }
-}
+};
 
 
 
 const init = () =>
 {
   addClickEvents();
-}
+};
 
 
 
