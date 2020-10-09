@@ -2,6 +2,7 @@
 let memory = '';
 let currentEntry = '';
 let answer = '';
+let pickedOperator = '';
 
 
 
@@ -26,7 +27,7 @@ const pushCurrentEntryToMemory = () =>
 
 const operatorButtonEvent = (e) =>
 {
-  let pickedOperator = e.target.value;
+  pickedOperator = e.target.value;
  
   switch(pickedOperator) 
   {
@@ -39,28 +40,67 @@ const operatorButtonEvent = (e) =>
       if (answer !== '')
       {
         memory = answer;
-      } 
+      }; 
       break;
 
     case '-':
-      console.log("You picked subtraction");
+      pushCurrentEntryToMemory();
+      if (answer !== '')
+      {
+        memory = answer;
+      }; 
       break;
+
     case 'x':
-      console.log("You picked multiplication");
+      pushCurrentEntryToMemory();
+      if (answer !== '')
+      {
+        memory = answer;
+      };
       break;
 
     case '/':
-      console.log("You picked division");
+      pushCurrentEntryToMemory();
+      if (answer !== '')
+      {
+        memory = answer;
+      };
       break;
-
-    case '=':
-      answer = parseInt(memory) + parseInt(currentEntry);
-      document.getElementById('displayEntries').innerHTML = answer;
-      memory = answer;
-      console.log(`memory should be answer to question: ${memory}`)
-    break;
   }
 
+}
+
+const equalsButtonEvent = (e) =>
+{
+  switch(pickedOperator) 
+  {
+    case '.':
+      console.log("You picked a decimal point"); // this might need to go somewhere else...
+      break;
+      case '+':
+        answer = parseInt(memory) + parseInt(currentEntry);
+        document.getElementById('displayEntries').innerHTML = answer;
+        memory = answer;
+      break;
+
+      case '-':
+        answer = parseInt(memory) - parseInt(currentEntry);
+        document.getElementById('displayEntries').innerHTML = answer;
+        memory = answer;
+      break;
+
+      case 'x':
+        answer = parseInt(memory) * parseInt(currentEntry);
+        document.getElementById('displayEntries').innerHTML = answer;
+        memory = answer;
+      break;
+
+      case '/':
+        answer = parseInt(memory) / parseInt(currentEntry);
+        document.getElementById('displayEntries').innerHTML = answer;
+        memory = answer;
+      break;
+  };
 }
 
 
@@ -83,6 +123,7 @@ const clearAllButtonEvent = (e) =>
 
 const addClickEvents = () =>
 {
+  equalsButton.addEventListener("click", equalsButtonEvent);
   backspaceButton.addEventListener("click", backspaceButtonEvent);
   clearAllButton.addEventListener("click", clearAllButtonEvent);
 
