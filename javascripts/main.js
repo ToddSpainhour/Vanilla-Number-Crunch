@@ -2,6 +2,7 @@
 let memory = '';
 let currentEntry = '';
 let answer = '';
+let pickedOperator = '';
 
 
 
@@ -26,7 +27,7 @@ const pushCurrentEntryToMemory = () =>
 
 const operatorButtonEvent = (e) =>
 {
-  let pickedOperator = e.target.value;
+  pickedOperator = e.target.value;
  
   switch(pickedOperator) 
   {
@@ -53,14 +54,28 @@ const operatorButtonEvent = (e) =>
       console.log("You picked division");
       break;
 
-    case '=':
-      answer = parseInt(memory) + parseInt(currentEntry);
-      document.getElementById('displayEntries').innerHTML = answer;
-      memory = answer;
-      console.log(`memory should be answer to question: ${memory}`)
-    break;
+    // case '=':
+    //   answer = parseInt(memory) + parseInt(currentEntry);
+    //   document.getElementById('displayEntries').innerHTML = answer;
+    //   memory = answer;
+    //   console.log(`memory should be answer to question: ${memory}`)
+    // break;
   }
 
+}
+
+const equalsButtonEvent = (e) =>
+{
+  console.log("inside equalsButtonEvent");
+  console.log(`Your picked operatoris ${pickedOperator}`);
+  if(pickedOperator === '+')
+  {
+    console.log("inside the equalsbutton event if statement");
+    answer = parseInt(memory) + parseInt(currentEntry);
+    document.getElementById('displayEntries').innerHTML = answer;
+    memory = answer;
+    console.log(`memory should be answer to question: ${memory}`)
+  }
 }
 
 
@@ -83,6 +98,7 @@ const clearAllButtonEvent = (e) =>
 
 const addClickEvents = () =>
 {
+  equalsButton.addEventListener("click", equalsButtonEvent);
   backspaceButton.addEventListener("click", backspaceButtonEvent);
   clearAllButton.addEventListener("click", clearAllButtonEvent);
 
