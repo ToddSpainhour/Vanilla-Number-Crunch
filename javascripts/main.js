@@ -120,10 +120,13 @@ const backspaceButtonEvent = () =>
 
 
 
-const clearAllButtonEvent = (e) =>
+const clearAllButtonEvent = () =>
 {
-  memory = [];
-  document.getElementById('displayEntries').innerHTML = memory;
+  currentEntry = '';
+  memory = '';
+  pickedOperator = '';
+  answer = '';
+  document.getElementById('displayEntries').innerHTML = currentEntry;
 };
 
 
