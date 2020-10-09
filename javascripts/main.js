@@ -23,6 +23,13 @@ const pushCurrentEntryToMemory = () =>
   currentEntry = ''
 }
 
+const pushAnswerToMemory = () =>
+{
+  if (answer !== '') 
+  {
+    memory = answer;
+  };
+}
 
 
 const operatorButtonEvent = (e) =>
@@ -37,34 +44,39 @@ const operatorButtonEvent = (e) =>
       
     case '+':
       pushCurrentEntryToMemory();
-      if (answer !== '')
-      {
-        memory = answer;
-      }; 
+      pushAnswerToMemory();
+      // if (answer !== '')
+      // {
+      //   memory = answer;
+      // }; 
       break;
 
     case '-':
       pushCurrentEntryToMemory();
-      if (answer !== '')
-      {
-        memory = answer;
-      }; 
+      pushAnswerToMemory();
+      // if (answer !== '')
+      // {
+      //   memory = answer;
+      // }; 
       break;
 
     case 'x':
       pushCurrentEntryToMemory();
-      if (answer !== '')
-      {
-        memory = answer;
-      };
+      pushAnswerToMemory();
+      // if (answer !== '')
+      // {
+      //   memory = answer;
+      // };
       break;
 
     case '/':
       pushCurrentEntryToMemory();
-      if (answer !== '')
-      {
-        memory = answer;
-      };
+      pushAnswerToMemory();
+
+      // if (answer !== '')
+      // {
+      //   memory = answer;
+      // };
       break;
   }
 
