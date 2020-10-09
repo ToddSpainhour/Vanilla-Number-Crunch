@@ -40,42 +40,67 @@ const operatorButtonEvent = (e) =>
       if (answer !== '')
       {
         memory = answer;
-      } 
+      }; 
       break;
 
     case '-':
-      console.log("You picked subtraction");
+      pushCurrentEntryToMemory();
+      if (answer !== '')
+      {
+        memory = answer;
+      }; 
       break;
+
     case 'x':
-      console.log("You picked multiplication");
+      pushCurrentEntryToMemory();
+      if (answer !== '')
+      {
+        memory = answer;
+      };
       break;
 
     case '/':
-      console.log("You picked division");
+      pushCurrentEntryToMemory();
+      if (answer !== '')
+      {
+        memory = answer;
+      };
       break;
-
-    // case '=':
-    //   answer = parseInt(memory) + parseInt(currentEntry);
-    //   document.getElementById('displayEntries').innerHTML = answer;
-    //   memory = answer;
-    //   console.log(`memory should be answer to question: ${memory}`)
-    // break;
   }
 
 }
 
 const equalsButtonEvent = (e) =>
 {
-  console.log("inside equalsButtonEvent");
-  console.log(`Your picked operatoris ${pickedOperator}`);
-  if(pickedOperator === '+')
+  switch(pickedOperator) 
   {
-    console.log("inside the equalsbutton event if statement");
-    answer = parseInt(memory) + parseInt(currentEntry);
-    document.getElementById('displayEntries').innerHTML = answer;
-    memory = answer;
-    console.log(`memory should be answer to question: ${memory}`)
-  }
+    case '.':
+      console.log("You picked a decimal point"); // this might need to go somewhere else...
+      break;
+      case '+':
+        answer = parseInt(memory) + parseInt(currentEntry);
+        document.getElementById('displayEntries').innerHTML = answer;
+        memory = answer;
+      break;
+
+      case '-':
+        answer = parseInt(memory) - parseInt(currentEntry);
+        document.getElementById('displayEntries').innerHTML = answer;
+        memory = answer;
+      break;
+
+      case 'x':
+        answer = parseInt(memory) * parseInt(currentEntry);
+        document.getElementById('displayEntries').innerHTML = answer;
+        memory = answer;
+      break;
+
+      case '/':
+        answer = parseInt(memory) / parseInt(currentEntry);
+        document.getElementById('displayEntries').innerHTML = answer;
+        memory = answer;
+      break;
+  };
 }
 
 
