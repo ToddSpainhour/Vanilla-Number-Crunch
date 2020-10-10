@@ -84,25 +84,25 @@ const equalsButtonEvent = (e) =>
       case '+':
         answer = parseFloat(memory) + parseFloat(currentEntry);
         document.getElementById('displayEntries').innerHTML = answer;
-        memory = answer;
+        memory = answer.toString();
       break;
 
       case '-':
         answer = parseFloat(memory) - parseFloat(currentEntry);
         document.getElementById('displayEntries').innerHTML = answer;
-        memory = answer;
+        memory = answer.toString();
       break;
 
       case 'x':
         answer = parseFloat(memory) * parseFloat(currentEntry);
         document.getElementById('displayEntries').innerHTML = answer;
-        memory = answer;
+        memory = answer.toString();
       break;
 
       case '/':
         answer = parseFloat(memory) / parseFloat(currentEntry);
         document.getElementById('displayEntries').innerHTML = answer;
-        memory = answer;
+        memory = answer.toString();
       break;
   };
 };
@@ -111,9 +111,20 @@ const equalsButtonEvent = (e) =>
 
 const backspaceButtonEvent = () => 
 {
-  const lastDigitRemoved = currentEntry.substring(0, currentEntry.length -1);
-  currentEntry = lastDigitRemoved;
-  document.getElementById('displayEntries').innerHTML = currentEntry;
+  if (answer !== '')
+  {
+    const lastDigitRemoved = memory.substring(0, memory.length -1);
+    memory = lastDigitRemoved;
+    answer = lastDigitRemoved;
+    document.getElementById('displayEntries').innerHTML = answer;
+  }
+  else 
+  {
+    const lastDigitRemoved = currentEntry.substring(0, currentEntry.length -1);
+    currentEntry = lastDigitRemoved;
+    document.getElementById('displayEntries').innerHTML = currentEntry;
+  }
+
 };
 
 
