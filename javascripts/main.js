@@ -75,7 +75,8 @@ const operatorButtonEvent = (e) =>
   };
 };
 
-// when answer gets push to memory make it a string again
+
+
 const equalsButtonEvent = (e) =>
 {
   switch(pickedOperator) 
