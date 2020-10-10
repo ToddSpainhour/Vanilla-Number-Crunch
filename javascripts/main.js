@@ -111,18 +111,22 @@ const equalsButtonEvent = (e) =>
 
 
 
-const backspaceButtonEvent = (e) => 
+const backspaceButtonEvent = () => 
 {
-  memory.splice(memory.length -1);
-  document.getElementById('displayEntries').innerHTML = memory.join('');
+  const lastDigitRemoved = currentEntry.substring(0, currentEntry.length -1);
+  currentEntry = lastDigitRemoved;
+  document.getElementById('displayEntries').innerHTML = currentEntry;
 };
 
 
 
-const clearAllButtonEvent = (e) =>
+const clearAllButtonEvent = () =>
 {
-  memory = [];
-  document.getElementById('displayEntries').innerHTML = memory;
+  currentEntry = '';
+  memory = '';
+  pickedOperator = '';
+  answer = '';
+  document.getElementById('displayEntries').innerHTML = currentEntry;
 };
 
 
