@@ -10,6 +10,7 @@ const pushCurrentEntryToMemory = () =>
 {
   memory = currentEntry;
   currentEntry = ''
+  console.log(`pushCurrentEntryToMemory ${memory}`) // 456
 };
 
 
@@ -75,8 +76,7 @@ const operatorButtonEvent = (e) =>
   };
 };
 
-
-
+// when answer gets push to memory make it a string again
 const equalsButtonEvent = (e) =>
 {
   switch(pickedOperator) 
@@ -84,36 +84,56 @@ const equalsButtonEvent = (e) =>
       case '+':
         answer = parseFloat(memory) + parseFloat(currentEntry);
         document.getElementById('displayEntries').innerHTML = answer;
-        memory = answer;
+        memory = answer.toString();
       break;
 
       case '-':
         answer = parseFloat(memory) - parseFloat(currentEntry);
         document.getElementById('displayEntries').innerHTML = answer;
-        memory = answer;
+        memory = answer.toString();
       break;
 
       case 'x':
         answer = parseFloat(memory) * parseFloat(currentEntry);
         document.getElementById('displayEntries').innerHTML = answer;
-        memory = answer;
+        memory = answer.toString();
       break;
 
       case '/':
         answer = parseFloat(memory) / parseFloat(currentEntry);
         document.getElementById('displayEntries').innerHTML = answer;
-        memory = answer;
+        memory = answer.toString();
       break;
   };
 };
 
-
-
+// when i backspace and delete a digit from the memory it does the next calculation like it's still there
 const backspaceButtonEvent = () => 
 {
-  const lastDigitRemoved = currentEntry.substring(0, currentEntry.length -1);
-  currentEntry = lastDigitRemoved;
-  document.getElementById('displayEntries').innerHTML = currentEntry;
+  //console.log(`memory inside thebackspaceButtonEvent is: ${memory}`);
+  if (answer !== '')
+  {
+    console.log(`memory inside the if statement is: ${memory}`);
+    //console.log(memory.substring(0, memory.length -1))
+    const lastDigitRemoved = memory.substring(0, memory.length -1);
+    memory = lastDigitRemoved;
+    answer = lastDigitRemoved;
+    console.log(`currentEntry: ${currentEntry}`);
+    console.log(`pickedOperator: ${pickedOperator}`);
+    console.log(`memory: ${memory}`);
+    console.log(`answer: ${answer}`);
+    document.getElementById('displayEntries').innerHTML = answer;
+    console.log(`memory at the bottom of the if statement is: ${answer}`);
+
+  }
+  else 
+  {
+    console.log("inside the backspaceButtonEvent else statement")
+    const lastDigitRemoved = currentEntry.substring(0, currentEntry.length -1);
+    currentEntry = lastDigitRemoved;
+    document.getElementById('displayEntries').innerHTML = currentEntry;
+  }
+
 };
 
 
