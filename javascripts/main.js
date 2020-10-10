@@ -6,8 +6,6 @@ let answer = '';
 
 
 
-
-
 const pushCurrentEntryToMemory = () =>
 {
   memory = currentEntry;
@@ -45,16 +43,20 @@ const numberButtonEvent = (e) =>
 
 
 
+const decimalPointEvent = (e) =>
+{
+  currentEntry += e.target.value;
+  document.getElementById('displayEntries').innerHTML = currentEntry;
+};
+
+
+
 const operatorButtonEvent = (e) =>
 {
   pickedOperator = e.target.value;
  
   switch(pickedOperator) 
-  {
-    case '.':
-      console.log("You picked a decimal point");
-      break;
-      
+  {      
     case '+':
       pushValuesToMemory();
       break;
@@ -79,30 +81,26 @@ const equalsButtonEvent = (e) =>
 {
   switch(pickedOperator) 
   {
-    case '.':
-      console.log("You picked a decimal point");
-      break;
-
       case '+':
-        answer = parseInt(memory) + parseInt(currentEntry);
+        answer = parseFloat(memory) + parseFloat(currentEntry);
         document.getElementById('displayEntries').innerHTML = answer;
         memory = answer;
       break;
 
       case '-':
-        answer = parseInt(memory) - parseInt(currentEntry);
+        answer = parseFloat(memory) - parseFloat(currentEntry);
         document.getElementById('displayEntries').innerHTML = answer;
         memory = answer;
       break;
 
       case 'x':
-        answer = parseInt(memory) * parseInt(currentEntry);
+        answer = parseFloat(memory) * parseFloat(currentEntry);
         document.getElementById('displayEntries').innerHTML = answer;
         memory = answer;
       break;
 
       case '/':
-        answer = parseInt(memory) / parseInt(currentEntry);
+        answer = parseFloat(memory) / parseFloat(currentEntry);
         document.getElementById('displayEntries').innerHTML = answer;
         memory = answer;
       break;
@@ -133,6 +131,7 @@ const clearAllButtonEvent = () =>
 
 const addClickEvents = () =>
 {
+  decimalPointButton.addEventListener("click", decimalPointEvent);
   equalsButton.addEventListener("click", equalsButtonEvent);
   backspaceButton.addEventListener("click", backspaceButtonEvent);
   clearAllButton.addEventListener("click", clearAllButtonEvent);
