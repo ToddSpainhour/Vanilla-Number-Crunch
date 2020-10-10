@@ -10,7 +10,6 @@ const pushCurrentEntryToMemory = () =>
 {
   memory = currentEntry;
   currentEntry = ''
-  console.log(`pushCurrentEntryToMemory ${memory}`) // 456
 };
 
 
@@ -107,28 +106,19 @@ const equalsButtonEvent = (e) =>
   };
 };
 
-// when i backspace and delete a digit from the memory it does the next calculation like it's still there
+
+
 const backspaceButtonEvent = () => 
 {
-  //console.log(`memory inside thebackspaceButtonEvent is: ${memory}`);
   if (answer !== '')
   {
-    console.log(`memory inside the if statement is: ${memory}`);
-    //console.log(memory.substring(0, memory.length -1))
     const lastDigitRemoved = memory.substring(0, memory.length -1);
     memory = lastDigitRemoved;
     answer = lastDigitRemoved;
-    console.log(`currentEntry: ${currentEntry}`);
-    console.log(`pickedOperator: ${pickedOperator}`);
-    console.log(`memory: ${memory}`);
-    console.log(`answer: ${answer}`);
     document.getElementById('displayEntries').innerHTML = answer;
-    console.log(`memory at the bottom of the if statement is: ${answer}`);
-
   }
   else 
   {
-    console.log("inside the backspaceButtonEvent else statement")
     const lastDigitRemoved = currentEntry.substring(0, currentEntry.length -1);
     currentEntry = lastDigitRemoved;
     document.getElementById('displayEntries').innerHTML = currentEntry;
