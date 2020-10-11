@@ -12,32 +12,51 @@
     
     <h1>Vanilla Number Crunch</h1>
 
-    <div class="calculator-container">
+    <div class="calculator-container col-11">
 
-      <div id="displayEntries"></div>
+      <div class="screen">
+        <div id="displayEntries"></div>
+      </div>
 
       <div class="calculator-buttons">
-        <!--Number Buttons-->
-        <button id="number-one-button"class="number-button" value="1" type="button">1</button>
-        <button id="number-two-button"class="number-button" value="2"  type="button">2</button>
-        <button id="number-three-button"class="number-button" value="3"  type="button" >3</button>
-        <button id="number-four-button"class="number-button" value="4"  type="button">4</button>
-        <button id="number-five-button"class="number-button" value="5"  type="button">5</button>
-        <button id="number-six-button"class="number-button" value="6"  type="button">6</button>
-        <button id="number-seven-button"class="number-button" value="7"  type="button">7</button>
-        <button id="number-eight-button"class="number-button" value="8"  type="button">8</button>
-        <button id="number-nine-button"class="number-button" value="9"  type="button">9</button>
-        <button id="numberZeroButton"class="number-button" value="0"  type="button">0</button>
 
-        <!--Operator Buttons-->
-        <button id="additionButton"class="operator-button" value="+" type="button">+</button>
-        <button id="subtractionButton"class="operator-button" value="-" type="button">-</button>
-        <button id="multiplicationButton"class="operator-button" value="x" type="button">x</button>
-        <button id="divisionButton"class="operator-button" value="/" type="button">/</button>
-        <button id="equalsButton"class="equals-button" value="=" type="button">=</button>
-        <button id="decimalPointButton"class="decimal-button" value="." type="button">.</button>
-        <button id="backspaceButton"class="backspace-button" value="backspace" type="button">Backspace</button>
-        <button id="clearAllButton"class="operator-button" type="button">Clear All</button>
+        <div class="button-row">
+          <button id="number-seven-button"class="number-button col-3" value="7"  type="button">7</button>
+          <button id="number-eight-button"class="number-button col-3" value="8"  type="button">8</button>
+          <button id="number-nine-button"class="number-button col-3" value="9"  type="button">9</button>
+          <button id="additionButton"class="operator-button col-3" value="+" type="button">+</button>
+        </div>
+
+        <div class="button-row">
+          <button id="number-four-button"class="number-button col-3" value="4"  type="button">4</button>
+          <button id="number-five-button"class="number-button col-3" value="5"  type="button">5</button>
+          <button id="number-six-button"class="number-button col-3" value="6"  type="button">6</button>
+          <button id="subtractionButton"class="operator-button col-3" value="-" type="button">-</button>
+        </div>
+
+        <div class="button-row">
+          <button id="number-one-button"class="number-button col-3" value="1" type="button">1</button>
+          <button id="number-two-button"class="number-button col-3" value="2"  type="button">2</button>
+          <button id="number-three-button"class="number-button col-3" value="3"  type="button" >3</button>
+          <button id="multiplicationButton"class="operator-button col-3" value="x" type="button">x</button>
+        </div>
+
+        <div class="button-row">
+          <button id="decimalPointButton"class="decimal-button col-3" value="." type="button">.</button>
+          <button id="numberZeroButton"class="number-button col-3" value="0"  type="button">0</button>
+          <button class="blank col-3">Blank</button>
+          <button id="divisionButton"class="operator-button col-3" value="/" type="button">/</button>
+        </div>
+
+        <div class="button-row">
+          <button id="equalsButton"class="equals-button col-12" value="=" type="button">=</button>
+        </div>
+
+        <div class="button-row">
+          <button id="clearAllButton"class="operator-button col-6" type="button">Clear All</button>
+          <button id="backspaceButton"class="backspace-button col-6" value="backspace" type="button">Backspace</button>
+        </div>
+
       </div>
 
     </div>
