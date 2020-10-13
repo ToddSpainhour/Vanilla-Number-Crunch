@@ -19,7 +19,6 @@ h1 {
   min-width: 330px;
   max-width: 1000px;
   margin: auto;
-  height: 100vh;
   background-color: pink;
   justify-content: center;
 }
