@@ -12,8 +12,19 @@ body {
 
 button {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  /* font-size: 1rem; */
 }
+
+.screen {
+  min-height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#displayEntries {
+  font-size: 2rem;
+}
+
 
 .number-button {
   font-size: 2rem;
