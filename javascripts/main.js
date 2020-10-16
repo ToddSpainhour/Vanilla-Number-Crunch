@@ -64,22 +64,18 @@ const operatorButtonEvent = (e) =>
   {      
     case '+':
       pushValuesToMemory();
-      showValuesInConsole();
       break;
 
     case '-':
       pushValuesToMemory();
-      showValuesInConsole();
       break;
 
     case 'x':
       pushValuesToMemory();
-      showValuesInConsole();
       break;
 
     case '/':
       pushValuesToMemory();
-      showValuesInConsole();
       break;
   };
 };
@@ -88,7 +84,6 @@ const operatorButtonEvent = (e) =>
 
 const equalsButtonEvent = (e) =>
 {
-  showValuesInConsole();
   switch(pickedOperator) 
   {
       case '+':
@@ -116,7 +111,6 @@ const equalsButtonEvent = (e) =>
       break;
   };
   currentEntry = ''
-  showValuesInConsole();
 };
 
 
