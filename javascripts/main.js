@@ -30,14 +30,7 @@ const pushValuesToMemory = () =>
   pushAnswerToMemory();
 };
 
-const showValuesInConsole = () =>
-{
-  console.log(`currentEntry: ${currentEntry}`);
-  console.log(`pickedOperator: ${pickedOperator}`);
-  console.log(`memory: ${memory}`);
-  console.log(`answer: ${answer}`);
-  console.log('-----------')
-};
+
 
 const numberButtonEvent = (e) => 
 {
@@ -56,22 +49,16 @@ const decimalPointEvent = (e) =>
   document.getElementById('displayEntries').innerHTML = currentEntry;
 };
 
-//it's running the operator with current entry (x) either memory or answer
-// when you finally hit equals the current value remains, where when you pick an operator it get cleared out
+
+
 const operatorButtonEvent = (e) =>
 {
-  console.log(`inside operatorButtonEvent ABOVE: ${pickedOperator}`)
   if (currentEntry !== '' && memory !== '')
   {
-    console.log("inside operatorButtonEvent if statement");
     equalsButtonEvent(pickedOperator);
   }
 
   pickedOperator = e.target.value;
-  console.log(`inside operatorButtonEvent Below: ${pickedOperator}`)
-
-  // new code
-  
  
   switch(pickedOperator) 
   {      
@@ -101,7 +88,6 @@ const operatorButtonEvent = (e) =>
 
 const equalsButtonEvent = (e) =>
 {
-  console.log("---Before equals calculation");
   showValuesInConsole();
   switch(pickedOperator) 
   {
@@ -129,10 +115,8 @@ const equalsButtonEvent = (e) =>
         memory = answer.toString();
       break;
   };
-  console.log("---After equals calculation");
   currentEntry = ''
   showValuesInConsole();
-
 };
 
 
@@ -152,7 +136,6 @@ const backspaceButtonEvent = () =>
     currentEntry = lastDigitRemoved;
     document.getElementById('displayEntries').innerHTML = currentEntry;
   }
-
 };
 
 
