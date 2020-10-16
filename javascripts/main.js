@@ -53,6 +53,11 @@ const decimalPointEvent = (e) =>
 
 const operatorButtonEvent = (e) =>
 {
+  if (currentEntry !== '' && memory !== '')
+  {
+    equalsButtonEvent(pickedOperator);
+  }
+
   pickedOperator = e.target.value;
  
   switch(pickedOperator) 
@@ -105,6 +110,7 @@ const equalsButtonEvent = (e) =>
         memory = answer.toString();
       break;
   };
+  currentEntry = ''
 };
 
 
@@ -124,7 +130,6 @@ const backspaceButtonEvent = () =>
     currentEntry = lastDigitRemoved;
     document.getElementById('displayEntries').innerHTML = currentEntry;
   }
-
 };
 
 
