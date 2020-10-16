@@ -60,13 +60,18 @@ const decimalPointEvent = (e) =>
 // when you finally hit equals the current value remains, where when you pick an operator it get cleared out
 const operatorButtonEvent = (e) =>
 {
-  pickedOperator = e.target.value;
-
-  // new code
+  console.log(`inside operatorButtonEvent ABOVE: ${pickedOperator}`)
   if (currentEntry !== '' && memory !== '')
   {
+    console.log("inside operatorButtonEvent if statement");
     equalsButtonEvent(pickedOperator);
   }
+
+  pickedOperator = e.target.value;
+  console.log(`inside operatorButtonEvent Below: ${pickedOperator}`)
+
+  // new code
+  
  
   switch(pickedOperator) 
   {      
