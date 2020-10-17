@@ -4,7 +4,7 @@
 
 
 body {
-  background-color: darkkhaki;
+  background-color: gainsboro;
   display: flex;
   justify-content: center;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -12,6 +12,12 @@ body {
 
 button {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  margin: .15rem;
 }
 
 .screen {
@@ -23,6 +29,13 @@ button {
 
 #displayEntries {
   font-size: 2rem;
+}
+
+.calculator-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: lightgrey;
 }
 
 
@@ -71,7 +84,7 @@ h1 {
   min-width: 330px;
   max-width: 1000px;
   margin: auto;
-  background-color: steelblue;
+  background-color: gray;
   justify-content: center;
 }
 
