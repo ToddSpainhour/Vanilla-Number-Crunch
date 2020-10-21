@@ -105,10 +105,6 @@ const equalsButtonEvent = (e) =>
       break;
 
       case '/':
-        console.log(`currentEntry: ${currentEntry}`);
-        console.log(`pickedOperator: ${pickedOperator}`);
-        console.log(`memory: ${memory}`);
-        console.log(`answer: ${answer}`);
         if (currentEntry === '0')
         {
           answer = memory;
