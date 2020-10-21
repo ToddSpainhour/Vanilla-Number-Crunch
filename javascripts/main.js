@@ -105,7 +105,18 @@ const equalsButtonEvent = (e) =>
       break;
 
       case '/':
-        answer = parseFloat(memory) / parseFloat(currentEntry);
+        console.log(`currentEntry: ${currentEntry}`);
+        console.log(`pickedOperator: ${pickedOperator}`);
+        console.log(`memory: ${memory}`);
+        console.log(`answer: ${answer}`);
+        if (currentEntry === '0')
+        {
+          answer = memory;
+        }
+        else
+        {
+          answer = parseFloat(memory) / parseFloat(currentEntry);
+        }
         document.getElementById('displayEntries').innerHTML = answer;
         memory = answer.toString();
       break;
